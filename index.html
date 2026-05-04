@@ -397,6 +397,36 @@ footer a{color:var(--cyan);text-decoration:none;}
 .reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
 
+/* DOWNLOAD CV BUTTON */
+.btn-download{
+  background:var(--cyan);
+  color:#050a0e;
+  border:none;
+  padding:12px 28px;
+  border-radius:6px;
+  font-family:'DM Mono',monospace;
+  font-size:0.82rem;
+  font-weight:500;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-top:0.75rem;
+}
+.btn-download:hover{animation:cvBounce 0.45s ease;}
+@keyframes cvBounce{
+  0%,100%{transform:translateY(0);}
+  35%{transform:translateY(-7px);}
+  65%{transform:translateY(-3px);}
+}
+.nav-cv{
+  color:var(--cyan)!important;
+  border:1px solid rgba(0,217,255,0.35);
+  border-radius:4px;
+  padding:4px 12px!important;
+}
+.nav-cv:hover{background:rgba(0,217,255,0.08);}
+
 /* CUSTOM CURSOR */
 body,a,button{cursor:none;}
 .cursor-dot{
@@ -467,6 +497,7 @@ body,a,button{cursor:none;}
     <li><a href="#skills">skills</a></li>
     <li><a href="#projects">projects</a></li>
     <li><a href="#contact">contact</a></li>
+    <li><a href="Abdallah-Odeh-CV.pdf" download style="color:#00d9ff;">↓ CV</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -493,6 +524,7 @@ body,a,button{cursor:none;}
     <div class="hero-btns">
       <a href="#projects" class="btn-primary">View Projects</a>
       <a href="#contact" class="btn-outline">Get In Touch</a>
+      <a href="Abdallah-Odeh-CV.pdf" download class="btn-primary">↓ Download CV</a>
     </div>
   </div>
   <div class="hero-right">
@@ -714,6 +746,7 @@ body,a,button{cursor:none;}
       <h4>Say Hello 👋</h4>
       <p>I usually respond within 24 hours.</p>
       <a href="mailto:aboododeh170@gmail.com" class="btn-primary" style="display:inline-block">Send Email →</a>
+      <a href="Abdallah-Odeh-CV.pdf" download class="btn-download">↓ Download CV</a>
     </div>
   </div>
 </section>
