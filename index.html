@@ -436,6 +436,9 @@ footer a{color:var(--cyan);text-decoration:none;}
 }
 .nav-cv:hover{background:rgba(0,217,255,0.08);}
 
+/* LIGHT MODE */
+body.light{--bg:#f0f6fc;--bg2:#e2eaf2;--card:#ffffff;--white:#0d1117;--muted:#444;--border:#ccd6e0;}
+
 /* LOADER */
 #loader{
   position:fixed;inset:0;
@@ -551,6 +554,7 @@ body,a,button{cursor:none;}
     <li><a href="#contact">contact</a></li>
     <li><a href="Abdallah-Odeh-CV.pdf" download style="color:#00d9ff;border:1px solid #00d9ff;padding:6px 14px;border-radius:4px;">↓ CV</a></li>
   </ul>
+  <button id="theme-toggle" onclick="toggleTheme()" style="background:transparent;border:1px solid #1a3a55;color:#00d9ff;padding:6px 14px;border-radius:4px;cursor:pointer;font-size:0.8rem;">☀️</button>
   <button class="hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
@@ -780,7 +784,7 @@ body,a,button{cursor:none;}
           <div class="contact-link-icon li">in</div>
           <span>LinkedIn — Abdallah Odeh</span>
         </a>
-        <a href="mailto:aboododeh170@gmail.com" class="contact-link">
+        <a href="#" class="contact-link" onclick="navigator.clipboard.writeText('aboododeh170@gmail.com');showToast();return false;">
           <div class="contact-link-icon gm">✉</div>
           <span>aboododeh170@gmail.com</span>
         </a>
@@ -884,6 +888,22 @@ window.addEventListener('scroll', () => {
   const progress = (scrollTop / docHeight) * 100;
   document.getElementById('progress-bar').style.width = progress + '%';
 });
+</script>
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" style="position:fixed;bottom:2rem;right:2rem;width:44px;height:44px;border-radius:50%;background:#00d9ff;color:#050a0e;border:none;font-size:1.2rem;cursor:pointer;opacity:0;transition:opacity 0.3s;z-index:999;">↑</button>
+<div id="toast" style="position:fixed;bottom:5rem;left:50%;transform:translateX(-50%);background:#00d9ff;color:#050a0e;padding:10px 24px;border-radius:100px;font-size:0.8rem;font-weight:500;opacity:0;transition:opacity 0.3s;z-index:9999;pointer-events:none;">✓ Email Copied!</div>
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('back-to-top').style.opacity = window.scrollY > 300 ? '1' : '0';
+});
+function showToast(){
+  const t=document.getElementById('toast');
+  t.style.opacity='1';
+  setTimeout(()=>t.style.opacity='0',2000);
+}
+function toggleTheme(){
+  document.body.classList.toggle('light');
+  document.getElementById('theme-toggle').textContent = document.body.classList.contains('light') ? '🌙' : '☀️';
+}
 </script>
 </body>
 </html>
